@@ -1,0 +1,19 @@
+_commit: v1.1.0-3-g8bbe603
+_src_path: /Users/crthomas/code/charlesthomas/homelab-template
+additionalResources: ''
+backups: false
+helm: false
+ingress: false
+labels: 'app: offsite-backups'
+name: offsite-backups
+namespace: offsite-backups
+pvc: false
+resources:
+- configmaps.yaml
+- cronjobs.yaml
+- external-secrets.yaml
+- rbac.yaml
+service: false
+serviceAccount: false
+upstreamURL: ''
+url: https://github.com/charlesthomas/homelab-offsite-backups
