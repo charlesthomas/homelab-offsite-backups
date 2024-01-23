@@ -16,18 +16,7 @@ spec:
           initContainers:
           - name: tailscale
             imagePullPolicy: IfNotPresent
-            image: "ghcr.io/tailscale/tailscale:latest"
-            readinessProbe:
-              exec:
-                command:
-                - 'tailscale'
-                - 'ping'
-                - '-c=1'
-                - '--timeout=15s'
-                - '--until-direct=false'
-                - 'offsite-rpi'
-              initialDelaySeconds: 30
-              periodSeconds: 30
+            image: "ghcr.io/tailscale/tailscale:v1.56.1"
             restartPolicy: Always
             securityContext:
               capabilities:                                                              
