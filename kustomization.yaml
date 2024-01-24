@@ -7,7 +7,6 @@ commonLabels:
   app: offsite-backups
 
 resources:
-- argocd-application.yaml
 - configmaps.yaml
 - cronjobs.yaml
 - external-secrets.yaml
