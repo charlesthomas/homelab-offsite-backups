@@ -1,9 +1,11 @@
-_commit: v1.6.2
+_commit: v1.8.1
 _src_path: /home/crthomas/code/charlesthomas/homelab-template
 additionalResources: ''
 backups: false
 helm: false
-ingSecret: ''
+homepageEnabled: true
+ingHost: offsite-backups.crt.house
+ingName: offsite-backups
 ingress: false
 labels: 'app: offsite-backups'
 name: offsite-backups
