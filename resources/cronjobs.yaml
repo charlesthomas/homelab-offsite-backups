@@ -23,8 +23,8 @@ spec:
                 - tailscale
                 - ping
                 - offsite-rpi
-          initialDelaySeconds: 10
-          periodSeconds: 5
+              initialDelaySeconds: 10
+              periodSeconds: 5
             restartPolicy: Always
             securityContext:
               capabilities:                                                              
