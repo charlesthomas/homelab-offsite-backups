@@ -17,6 +17,14 @@ spec:
           - name: tailscale
             imagePullPolicy: IfNotPresent
             image: "ghcr.io/tailscale/tailscale:v1.56.1"
+            readinessProbe:
+              exec:
+                command:
+                - tailscale
+                - ping
+                - offsite-rpi
+          initialDelaySeconds: 10
+          periodSeconds: 5
             restartPolicy: Always
             securityContext:
               capabilities:                                                              
