@@ -20,9 +20,9 @@ spec:
             readinessProbe:
               exec:
                 command:
-                - tailscale
-                - ping
-                - offsite-rpi
+                - /bin/sh
+                args:
+                - /opt/liveness.sh
               initialDelaySeconds: 5
               periodSeconds: 120
             restartPolicy: Always
