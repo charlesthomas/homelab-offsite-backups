@@ -21,7 +21,6 @@ spec:
               exec:
                 command:
                 - /bin/sh
-                args:
                 - /opt/liveness.sh
               initialDelaySeconds: 5
               periodSeconds: 120
@@ -48,7 +47,6 @@ spec:
             imagePullPolicy: IfNotPresent
             command:
             - /bin/sh
-            args:
             - /opt/sync.sh
             volumeMounts:
             - mountPath: /critical

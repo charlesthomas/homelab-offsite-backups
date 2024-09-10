@@ -10,7 +10,7 @@ data:
     cp /ssh/* /root/.ssh
     chmod -R 600 /root/.ssh
     sleep 30
-    rsync -rptgoD --copy-links --compress --delete-after --size-only --verbose /critical/ offsite-rpi:/mnt/nas02/critical/
+    rsync --archive --compress --delete-after --size-only --verbose /critical/ offsite-rpi:/mnt/nas02/critical/
     rsync --archive --compress --delete-after --size-only --verbose /time-machine/ offsite-rpi:/mnt/nas02/time-machine/
   liveness.sh: |-
     tailscale ping offsite-rpi &>/dev/null
