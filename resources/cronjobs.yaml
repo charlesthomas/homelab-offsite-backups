@@ -23,7 +23,7 @@ spec:
                 - /bin/sh
                 - /opt/liveness.sh
               initialDelaySeconds: 5
-              periodSeconds: 120
+              periodSeconds: 5
             restartPolicy: Always
             securityContext:
               capabilities:                                                              
