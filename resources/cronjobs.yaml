@@ -24,6 +24,7 @@ spec:
                 - /opt/liveness.sh
               initialDelaySeconds: 5
               periodSeconds: 5
+            resources: {}
             restartPolicy: Always
             securityContext:
               capabilities:                                                              
@@ -46,29 +47,30 @@ spec:
             image: ghcr.io/charlesthomas/alpine-rsync:latest
             imagePullPolicy: IfNotPresent
             command:
-            - /bin/sh
-            - /opt/sync.sh
+              - /bin/sh
+              - /opt/sync.sh
+            resources: {}
             volumeMounts:
-            - mountPath: /critical
-              name: critical
-            - mountPath: /opt
-              name: sync-script
-            - mountPath: /ssh
-              name: ssh
-            - mountPath: /time-machine
-              name: time-machine
+              - mountPath: /critical
+                name: critical
+              - mountPath: /opt
+                name: sync-script
+              - mountPath: /ssh
+                name: ssh
+              - mountPath: /time-machine
+                name: time-machine
           volumes:
-          - name: critical
-            nfs:
-              path: /volume1/critical
-              server: 192.168.1.21
-          - name: ssh
-            secret:
-              secretName: ssh
-          - name: sync-script
-            configMap:
-              name: sync-script
-          - name: time-machine
-            nfs:
-              path: /volume1/time-machine
-              server: 192.168.1.21
+            - name: critical
+              nfs:
+                path: /volume1/critical
+                server: 192.168.1.21
+            - name: ssh
+              secret:
+                secretName: ssh
+            - name: sync-script
+              configMap:
+                name: sync-script
+            - name: time-machine
+              nfs:
+                path: /volume1/time-machine
+                server: 192.168.1.21
