@@ -4,6 +4,7 @@ metadata:
   name: rsync-nas02
   namespace: offsite-backups
 spec:
+  suspend: true
   concurrencyPolicy: Forbid
   schedule: "0 3 * * *"
   timeZone: America/Detroit
