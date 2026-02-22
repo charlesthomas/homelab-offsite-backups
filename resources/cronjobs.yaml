@@ -13,7 +13,6 @@ spec:
       template:
         spec:
           restartPolicy: Never
-          serviceAccountName: tailscale
           containers:
           - name: rsync
             image: ghcr.io/charlesthomas/alpine-rsync:latest
