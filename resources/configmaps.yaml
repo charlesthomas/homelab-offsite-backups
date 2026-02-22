@@ -9,7 +9,7 @@ data:
     mkdir /root/.ssh
     cp /ssh/* /root/.ssh
     chmod -R 600 /root/.ssh
-    rsync --archive --compress --delete-after --size-only --verbose /critical/ 192.168.1.5:/mnt/nas02/critical/
-    rsync --archive --compress --delete-after --size-only --verbose /media/ 192.168.1.5:/mnt/nas02/media/
-    rsync --archive --compress --delete-after --size-only --verbose /time-machine/ 192.168.1.5:/mnt/nas02/time-machine/
-    rsync --archive --compress --delete-after --size-only --verbose 192.168.2.5:/mnt/nas02/TMBackup/ /arborwood/
+    rsync --archive --compress --delete-after --size-only --verbose /critical/ offsite-backups:/mnt/nas02/critical/
+    rsync --archive --compress --delete-after --size-only --verbose /media/ offsite-backups:/mnt/nas02/media/
+    rsync --archive --compress --delete-after --size-only --verbose /time-machine/ offsite-backups:/mnt/nas02/time-machine/
+    rsync --archive --compress --delete-after --size-only --verbose offsite-backups:/mnt/nas02/TMBackup/ /arborwood/
