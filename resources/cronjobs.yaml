@@ -14,35 +14,6 @@ spec:
         spec:
           restartPolicy: Never
           serviceAccountName: tailscale
-          initContainers:
-          - name: tailscale
-            imagePullPolicy: IfNotPresent
-            image: "ghcr.io/tailscale/tailscale:v1.56.1"
-            readinessProbe:
-              exec:
-                command:
-                - /bin/sh
-                - /opt/liveness.sh
-              initialDelaySeconds: 5
-              periodSeconds: 5
-            resources: {}
-            restartPolicy: Always
-            securityContext:
-              capabilities:                                                              
-                add:                                                                     
-                - NET_ADMIN
-            env:
-            - name: TS_KUBE_SECRET
-              value: "tailscale"
-            - name: TS_USERSPACE
-              value: "false"
-            - name: TS_ACCEPT_DNS
-              value: "true"
-            - name: TS_AUTHKEY
-              valueFrom:
-                secretKeyRef:
-                  name: tailscale-auth
-                  key: TS_AUTHKEY
           containers:
           - name: rsync
             image: ghcr.io/charlesthomas/alpine-rsync:latest
@@ -61,16 +32,24 @@ spec:
               - mountPath: /time-machine
                 name: time-machine
           volumes:
-            - name: critical
-              nfs:
-                path: /volume1/critical
-                server: 192.168.1.21
             - name: ssh
               secret:
                 secretName: ssh
             - name: sync-script
               configMap:
                 name: sync-script
+            - name: arborwood
+              nfs:
+                path: /volume1/arborwood
+                server: 192.168.1.21
+            - name: critical
+              nfs:
+                path: /volume1/critical
+                server: 192.168.1.21
+            - name: media
+              nfs:
+                path: /volume1/media/sync
+                server: 192.168.1.21
             - name: time-machine
               nfs:
                 path: /volume1/time-machine

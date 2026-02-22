@@ -9,8 +9,7 @@ data:
     mkdir /root/.ssh
     cp /ssh/* /root/.ssh
     chmod -R 600 /root/.ssh
-    sleep 30
-    rsync --archive --compress --delete-after --size-only --verbose /critical/ offsite-rpi:/mnt/nas02/critical/
-    rsync --archive --compress --delete-after --size-only --verbose /time-machine/ offsite-rpi:/mnt/nas02/time-machine/
-  liveness.sh: |-
-    tailscale ping offsite-rpi &>/dev/null
+    rsync --archive --compress --delete-after --size-only --verbose /critical/ 192.168.1.5:/mnt/nas02/critical/
+    rsync --archive --compress --delete-after --size-only --verbose /media/ 192.168.1.5:/mnt/nas02/media/
+    rsync --archive --compress --delete-after --size-only --verbose /time-machine/ 192.168.1.5:/mnt/nas02/time-machine/
+    rsync --archive --compress --delete-after --size-only --verbose 192.168.2.5:/mnt/nas02/TMBackup/ /arborwood/

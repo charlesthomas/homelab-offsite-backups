@@ -13,4 +13,3 @@ resources:
 - resources/cronjobs.yaml
 - resources/external-secrets.yaml
 - resources/namespaces.yaml
-- resources/rbac.yaml
