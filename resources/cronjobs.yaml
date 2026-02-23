@@ -22,8 +22,12 @@ spec:
               - /opt/sync.sh
             resources: {}
             volumeMounts:
+              - mountPath: /arborwood
+                name: arborwood
               - mountPath: /critical
                 name: critical
+              - mountPath: /media
+                name: media
               - mountPath: /opt
                 name: sync-script
               - mountPath: /ssh
