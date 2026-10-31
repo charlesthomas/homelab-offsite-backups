@@ -5,11 +5,21 @@ namespace: offsite-backups
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-offsite-backups
-commonLabels:
-  app: offsite-backups
+labels:
+- includeSelectors: true
+  pairs:
+    app: offsite-backups
 
 resources:
 - resources/configmaps.yaml
 - resources/cronjobs.yaml
 - resources/external-secrets.yaml
 - resources/namespaces.yaml
+configMapGenerator:
+- name: grafana-dashboard-offsite-backups
+  files:
+  - grafana/offsite-backups.json
+  options:
+    disableNameSuffixHash: true
+    labels:
+      grafana_dashboard: "1"
