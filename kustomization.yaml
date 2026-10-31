@@ -5,8 +5,10 @@ namespace: offsite-backups
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-offsite-backups
-commonLabels:
-  app: offsite-backups
+labels:
+- includeSelectors: true
+  pairs:
+    app: offsite-backups
 
 resources:
 - resources/configmaps.yaml
